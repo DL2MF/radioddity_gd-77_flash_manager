@@ -255,7 +255,8 @@ namespace GD77_FlashManager
 								this.btnReadCalibration.Visible = true;
 								this.btnWriteCalibration.Visible = true;
 								this.btnCalibration.Visible = true;
-							}
+                                this.calibrationToolStripMenuItem.Visible = true;
+                        }
 						}
 						break;
 				}
@@ -326,13 +327,14 @@ namespace GD77_FlashManager
 
 		private void adjustSettingsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if (DialogResult.OK == MessageBox.Show("The Calibration feature is still in development.\nNot all paramaters have been tested\nYou use this feature at your own risk.", "WARNING", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
-			{
-				this.btnReadCalibration.Visible = true;
+			//if (DialogResult.OK == MessageBox.Show("The Calibration feature is still in development.\nNot all paramaters have been tested\nYou use this feature at your own risk.", "WARNING", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
+            {
+				/*this.btnReadCalibration.Visible = true;
 				this.btnWriteCalibration.Visible = true;
 				this.btnCalibration.Visible = true;
-				this.calibrationToolStripMenuItem.Visible = true;
-			}
+				this.calibrationToolStripMenuItem.Visible = true;*/
+                btnCalibration.PerformClick();
+            }
 		}
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -354,18 +356,27 @@ namespace GD77_FlashManager
 
 		private void readFlashToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			btnRead.PerformClick();
-		}
+            btnRead.PerformClick();
+        }
 
 		private void writeFlashToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			btnWrite.PerformClick();
-		}
+            btnWrite.PerformClick();
+        }
 
 		private void mergeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			mergeFile();
 		}
 
-	}
+        private void readFromRadioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnReadCalibration.PerformClick();
+        }
+
+        private void writeToRadioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnWriteCalibration.PerformClick();
+        }
+    }
 }
